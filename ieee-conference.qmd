@@ -3,7 +3,6 @@ title: Ieee-conference Template
 format:
   ieee-conference-pdf:
     keep-tex: true
-    cite-method: biblatex
 affiliation:
   ## Author mode :  use one only of the following --- +
   

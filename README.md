@@ -1,7 +1,7 @@
 
 # IEEE Transactions Conference Template
 
-Built on top of [`rticles::ieee_article()`](https://pkgs.rstudio.com/rticles/reference/ieee_article.html).
+Built on top of the template in [`rticles::ieee_article()`](https://pkgs.rstudio.com/rticles/reference/ieee_article.html).
 
 ## Creating a New Article
 
@@ -17,8 +17,6 @@ This will create a new directory with an example document that uses this format.
 
 To add this format to an existing document:
 
-*TODO*: Replace the `jansim` with your GitHub organization.
-
 ```bash
 quarto add jansim/ieee-conference
 ```
@@ -32,7 +30,7 @@ format:
 
 ## Options
 
-*TODO*: If your format has options that can be set via document metadata, describe them.
+Refer to comments in [ieee-conference.qmd](ieee-conference.qmd) regarding available options.
 
 ## Example
 
