@@ -50,7 +50,7 @@
 % The testflow support page is at:
 % http://www.michaelshell.org/tex/testflow/
 
-\documentclass[conference,$if(fontsize)$$fontsize$,$endif$$if(draftmode)$$draftmode$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{IEEEtran}
+\documentclass[conference,]{IEEEtran}
 % Some Computer Society conferences also require the compsoc mode option,
 % but others use the standard conference format.
 %
@@ -68,9 +68,6 @@
 
 % *** MISC UTILITY PACKAGES ***
 %
-$if(with_ifpdf)$
-\usepackage{ifpdf}
-$endif$
 %\usepackage{ifpdf}
 % Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
 % compilation based on whether the output is pdf or dvi.
@@ -94,9 +91,6 @@ $endif$
 
 % *** CITATION PACKAGES ***
 %
-$if(with_cite)$
-\usepackage{cite}
-$endif$
 %\usepackage{cite}
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
@@ -162,10 +156,6 @@ $endif$
 
 % *** MATH PACKAGES ***
 %
-$if(with_amsmath)$
-\usepackage{amsmath}
-\interdisplaylinepenalty=2500
-$endif$
 %\usepackage{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics.
@@ -184,9 +174,6 @@ $endif$
 
 % *** SPECIALIZED LIST PACKAGES ***
 %
-$if(with_algorithmic)$
-\usepackage{algorithmic}
-$endif$
 %\usepackage{algorithmic}
 % algorithmic.sty was written by Peter Williams and Rogerio Brito.
 % This package provides an algorithmic environment fo describing algorithms.
@@ -207,9 +194,6 @@ $endif$
 
 % *** ALIGNMENT PACKAGES ***
 %
-$if(with_array)$
-\usepackage{array}
-$endif$
 %\usepackage{array}
 % Frank Mittelbach's and David Carlisle's array.sty patches and improves
 % the standard LaTeX2e array and tabular environments to provide better
@@ -257,9 +241,6 @@ $endif$
 
 % *** FLOAT PACKAGES ***
 %
-$if(with_dblfloatfix)$
-\usepackage{dblfloatfix}
-$endif$
 
 %\usepackage{fixltx2e}
 % fixltx2e, the successor to the earlier fix2col.sty, was written by
@@ -328,62 +309,29 @@ $endif$
 
 %% BEGIN MY ADDITIONS %%
 
-$if(natbib)$
-\usepackage[$natbiboptions$]{natbib}
-\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
-$endif$
-$if(biblatex)$
-\usepackage[citestyle=ieee,$if(biblio-style)$style=$biblio-style$,$endif$$if(citation_sorting)$sorting=$citation_sorting$$endif$,$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
-$for(bibliography)$
-\addbibresource{$bibliography$}
-$endfor$
-$endif$
 
 \usepackage[unicode=true]{hyperref}
 
 \hypersetup{
-$if(title-meta)$
-            pdftitle={$title-meta$},
-$endif$
-$if(author-meta)$
-            pdfauthor={$author-meta$},
-$endif$
-$if(keywords)$
-            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
-$endif$
-$if(colorlinks)$
+            pdftitle={Ieee-conference Template},
+            pdfkeywords={template, demo},
             colorlinks=true,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
-            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-$else$
-            pdfborder={0 0 0},
-$endif$
+            linkcolor=blue,
+            citecolor=blue,
+            urlcolor=blue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 
 % Pandoc toggle for numbering sections (defaults to be off)
-$if(numbersections)$
-\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
-$else$
 \setcounter{secnumdepth}{0}
-$endif$
 
-$if(highlighting-macros)$
-% Pandoc syntax highlighting
-$highlighting-macros$
-$endif$
 
 % tightlist command for lists without linebreak
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-$if(tables)$
 % From pandoc table feature
 \usepackage{longtable,booktabs,array}
-$if(multirow)$
-\usepackage{multirow}
-$endif$
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -393,9 +341,7 @@ $endif$
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
-$endif$
 
-$if(csl-refs)$
 % Pandoc citation processing
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
@@ -405,8 +351,7 @@ $if(csl-refs)$
 \setlength{\cslentryspacingunit}{\parskip}
 % for Pandoc 2.8 to 2.10.1
 \newenvironment{cslreferences}%
-  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
-  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {}%
   {\par}
 % For Pandoc 2.11+
 \newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
@@ -426,16 +371,63 @@ $if(csl-refs)$
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-$endif$
 
-$for(header-includes)$
-$header-includes$
-$endfor$
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
 
 %% END MY ADDITIONS %%
 
 
-\hyphenation{$hyphenfixes$}
+\hyphenation{}
 
 \begin{document}
 %
@@ -445,61 +437,20 @@ $endfor$
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{$title$}
+\title{Ieee-conference Template}
 
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
 
 \author{
-$if(affiliation)$
 
 %% ---- classic IEEETrans wide authors' list ----------------
-$if(affiliation.wide)$
-\IEEEauthorblockN{
-$if(affiliation.author)$$for(affiliation.author)$
-$affiliation.author.name$$for(affiliation.author.mark)$\IEEEauthorrefmark{$affiliation.author.mark$}$endfor$$sep$,$endfor$
-$else$%% $-- else affiliation.author
-$if(affiliation.author_multiline)$$for(affiliation.author_multiline)$
-$for(affiliation.author_multiline.line)$
-$affiliation.author_multiline.line.name$$for(affiliation.author_multiline.line.mark)$\IEEEauthorrefmark{$affiliation.author_multiline.line.mark$}$endfor$$sep$,
-$endfor$$-- end affiliation.author_multiline.line
-$sep$}
-\IEEEauthorblockN{
-$endfor$$else$%%$-- end for affiliation.author_multiline and else affiliation.author_multiline
-$for(affiliation.institution)$$for(affiliation.institution.author)$
-$affiliation.institution.author.name$\IEEEauthorrefmark{$affiliation.institution.mark$}$sep$,$endfor$$-- end for/affiliation.institution.author
-$sep$,$endfor$$endif$$endif$%%$-- end for/affiliation.institution and end if affiliation.author_multiline and affiliation.author
-}
 
-$for(affiliation.institution)$
-\IEEEauthorblockA{\IEEEauthorrefmark{$affiliation.institution.mark$}
-$if(affiliation.institution.department)$
-$affiliation.institution.department$\\
-$endif$
-$affiliation.institution.name$,
-$affiliation.institution.location$
-$if(affiliation.institution.email)$
-\\ $affiliation.institution.email$
-$endif$
-}
-$endfor$$endif$$-- end for/affiliation.institution and end if affiliation.wide
 %% ----------------------------------------------------------
 
 %% ---- classic IEEETrans one column per institution --------
-$if(affiliation.institution-columnar)$
-$for(affiliation.institution)$
-\IEEEauthorblockN{$for(affiliation.institution.author)$$affiliation.institution.author.name$$sep$, $endfor$}
-\IEEEauthorblockA{
-$if(affiliation.institution.department)$$affiliation.institution.department$\\$endif$%%
-$affiliation.institution.name$\\
-$affiliation.institution.location$
-$if(affiliation.institution.email)$\\$affiliation.institution.email$$else$$for(affiliation.institution.author)$$if(affiliation.institution.author.email)$\\$affiliation.institution.author.email$$endif$$endfor$%%
-$endif$%%$-- end for/affiliation.institution.author
-}
-$sep$\and
-$endfor$ %%$-- end for/affiliation.institution
-$endif$ %%$-- end if/affiliation.institution-columnar
+ %%
 %% ----------------------------------------------------------
 
 
@@ -507,33 +458,47 @@ $endif$ %%$-- end if/affiliation.institution-columnar
 
 
 %% ---- one column per author, classic/default IEEETrans ----
-$if(affiliation.author-columnar)$
-$for(affiliation.institution)$
-$for(affiliation.institution.author)$
-\IEEEauthorblockN{$affiliation.institution.author.name$}
-\IEEEauthorblockA{$affiliation.institution.name$\\
-$if(affiliation.institution.department)$
-$affiliation.institution.department$\\
-$endif$
-$affiliation.institution.location$
-$if(affiliation.institution.email)$
-\\$affiliation.institution.email$
-$else$
-$for(affiliation.institution.author)$
-$if(affiliation.institution.author.email)$
-\\$affiliation.institution.author.email$
-$endif$
-$endfor$%%$-- end for/affiliation.institution.author
-$endif$
+\IEEEauthorblockN{Michael Shell}
+\IEEEauthorblockA{Georgia Institute of Technology\\
+School of Electrical and Computer Engineering\\
+Atlanta, Georgia 30332--0250
+\\ece@datech.edu
 }
-$sep$\and
-$endfor$$-- end for/affiliation.institution.author
-$sep$\and
-$endfor$$-- end for/affiliation.institution
-$endif$$-- end if/affiliation.institution-columnar
+
+\and
+\IEEEauthorblockN{Homer Simpson}
+\IEEEauthorblockA{Twentieth Century Fox\\
+Springfield, USA
+\\homer@thesimpsons.com
+%%
+}
+
+\and
+\IEEEauthorblockN{Montgomery Scott}
+\IEEEauthorblockA{Starfleet Academy\\
+San Francisco, California 96678-2391
+%%
+}
+
+\and
+\IEEEauthorblockN{Eldon Tyrell}
+\IEEEauthorblockA{Tyrell Inc.\\
+123 Replicant Street, Los Angeles, USA 90210--4321
+\\eldon@starfleet-academy.star
+%%
+}
+\and
+\IEEEauthorblockN{Roy Batty}
+\IEEEauthorblockA{Tyrell Inc.\\
+123 Replicant Street, Los Angeles, USA 90210--4321
+\\roy@replicant.offworld
+%%
+}
+
+
+
 %% ----------------------------------------------------------
 
-$endif$
 }
 
 % conference papers do not typically use \thanks and this command
@@ -573,21 +538,16 @@ $endif$
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-$abstract$
+This document is a template demonstrating the Ieee-conference format.
 \end{abstract}
 
 % keywords
-$if(keywords)$
 \begin{IEEEkeywords}
-$for(keywords)$$keywords$$sep$; $endfor$
+template; demo
 \end{IEEEkeywords}
-$endif$
 
 % use for special paper notices
 
-$if(IEEEspecialpaper)$
-\IEEEspecialpapernotice{$IEEEspecialpaper$}
-$endif$
 
 
 % make the title area
@@ -605,33 +565,65 @@ $endif$
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-$for(include-before)$
-$include-before$
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, frame hidden, breakable, sharp corners, enhanced, boxrule=0pt, interior hidden]}{\end{tcolorbox}}\fi
 
-$endfor$
 
-$body$
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
-$if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
-$if(has-chapters)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-$endif$
-$endif$
-$if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+This demo file is intended to serve as a ``starter file'\,' for IEEE
+conference papers produced under \LaTeX~using IEEEtran.cls version 1.8b
+and later. I wish you the best of success.
 
-$endif$
-$for(include-after)$
-$include-after$
+\hypertarget{subsection-heading-here}{%
+\subsection{Subsection Heading Here}\label{subsection-heading-here}}
 
-$endfor$
+Subsection text here.
+
+\hypertarget{subsubsection-heading-here}{%
+\subsubsection{Subsubsection Heading
+Here}\label{subsubsection-heading-here}}
+
+Subsubsection text here.
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+The conclusion goes here.
+
+\hypertarget{acknowledgment}{%
+\section{Acknowledgment}\label{acknowledgment}}
+
+The authors would like to thank\ldots{}
+
+\hypertarget{bibliography-styles}{%
+\section{Bibliography styles}\label{bibliography-styles}}
+
+Here are two sample references: {[}1{]}, {[}2{]}.
+
+\newpage
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-Feynman1963118}{}}%
+\CSLLeftMargin{{[}1{]} }%
+\CSLRightInline{R. P. Feynman and F. L. Vernon Jr., {``The theory of a
+general quantum system interacting with a linear dissipative system,''}
+\emph{Annals of Physics}, vol. 24, pp. 118--173, 1963, doi:
+\href{https://doi.org/10.1016/0003-4916(63)90068-X}{10.1016/0003-4916(63)90068-X}.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-Dirac1953888}{}}%
+\CSLLeftMargin{{[}2{]} }%
+\CSLRightInline{P. A. M. Dirac, {``The lorentz transformation and
+absolute time,''} \emph{Physica}, vol. 19, no. 1--12, pp. 888--896,
+1953, doi:
+\href{https://doi.org/10.1016/S0031-8914(53)80099-6}{10.1016/S0031-8914(53)80099-6}.}
+
+\end{CSLReferences}
+
 \end{document}
-
 
