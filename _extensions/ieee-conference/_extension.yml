@@ -1,4 +1,4 @@
-title: Ieee-conference
+title: IEEE Conference Proceedings
 author: Jan Simson
 version: 1.0.0
 quarto-required: ">=1.2.0"
@@ -9,7 +9,7 @@ contributes:
       filters:
         - ieee-conference.lua
     pdf:
-      include-in-header: header.tex
+      template: template.tex
     html:
       css: styles.css
 
