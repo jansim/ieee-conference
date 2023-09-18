@@ -1,14 +1,14 @@
 
-# <%= title %>
+# IEEE Transactions Conference Template
+
+Built on top of [`rticles::ieee_article()`](https://pkgs.rstudio.com/rticles/reference/ieee_article.html).
 
 ## Creating a New Article
 
 To create a new article using this format:
 
-*TODO*: Replace the `<github-organization>` with your GitHub organization.
-
 ```bash
-quarto use template <github-organization>/<%= filesafename %>
+quarto use template jansim/ieee-conference
 ```
 
 This will create a new directory with an example document that uses this format.
@@ -17,17 +17,17 @@ This will create a new directory with an example document that uses this format.
 
 To add this format to an existing document:
 
-*TODO*: Replace the `<github-organization>` with your GitHub organization.
+*TODO*: Replace the `jansim` with your GitHub organization.
 
 ```bash
-quarto add <github-organization>/<%= filesafename %>
+quarto add jansim/ieee-conference
 ```
 
 Then, add the format to your document options:
 
 ```yaml
 format:
-  <%= filesafename %>-pdf: default
+  ieee-conference-pdf: default
 ```    
 
 ## Options
@@ -36,5 +36,7 @@ format:
 
 ## Example
 
-Here is the source code for a minimal sample document: [template.qmd](template.qmd).
+Here is the source code for a minimal sample document: [ieee-conference.qmd](ieee-conference.qmd) and the rendered output: [ieee-conference.pdf](ieee-conference.pdf).
+
+Note that formatting is slightly off in the rendered PDF due to issues in a local LaTeX installation. Rendering the produced TeX-document on e.g. overleaf produces better output
 
