@@ -2,8 +2,8 @@
 title: Ieee-conference Template
 format:
   ieee-conference-pdf:
-    keep-tex: true  
-  ieee-conference-html: default
+    keep-tex: true
+    cite-method: biblatex
 affiliation:
   ## Author mode :  use one only of the following --- +
   
@@ -83,7 +83,8 @@ abstract: |
   This document is a template demonstrating the Ieee-conference format.
 keywords: [template, demo]
 bibliography: bibliography.bib
-csl: IEEE.csl
+colorlinks: false
+numbersections: true
 ---
 
 # Introduction

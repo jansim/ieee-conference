@@ -309,21 +309,20 @@
 
 %% BEGIN MY ADDITIONS %%
 
+\usepackage[citestyle=ieee,,]{biblatex}
+\addbibresource{bibliography.bib}
 
 \usepackage[unicode=true]{hyperref}
 
 \hypersetup{
             pdftitle={Ieee-conference Template},
             pdfkeywords={template, demo},
-            colorlinks=true,
-            linkcolor=blue,
-            citecolor=blue,
-            urlcolor=blue,
+            pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 
 % Pandoc toggle for numbering sections (defaults to be off)
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{5}
 
 
 % tightlist command for lists without linebreak
@@ -342,35 +341,6 @@
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
 
-% Pandoc citation processing
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-% for Pandoc 2.8 to 2.10.1
-\newenvironment{cslreferences}%
-  {}%
-  {\par}
-% For Pandoc 2.11+
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \makeatletter
 \makeatother
@@ -565,7 +535,7 @@ template; demo
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, frame hidden, breakable, sharp corners, enhanced, boxrule=0pt, interior hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden, sharp corners, enhanced, breakable]}{\end{tcolorbox}}\fi
 
 
 \hypertarget{introduction}{%
@@ -599,31 +569,11 @@ The authors would like to thank\ldots{}
 \hypertarget{bibliography-styles}{%
 \section{Bibliography styles}\label{bibliography-styles}}
 
-Here are two sample references: {[}1{]}, {[}2{]}.
+Here are two sample references: \textcite{Feynman1963118,Dirac1953888}.
 
 \newpage
 
-\hypertarget{references}{%
-\section*{References}\label{references}}
-\addcontentsline{toc}{section}{References}
-
-\hypertarget{refs}{}
-\begin{CSLReferences}{0}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-Feynman1963118}{}}%
-\CSLLeftMargin{{[}1{]} }%
-\CSLRightInline{R. P. Feynman and F. L. Vernon Jr., {``The theory of a
-general quantum system interacting with a linear dissipative system,''}
-\emph{Annals of Physics}, vol. 24, pp. 118--173, 1963, doi:
-\href{https://doi.org/10.1016/0003-4916(63)90068-X}{10.1016/0003-4916(63)90068-X}.}
-
-\leavevmode\vadjust pre{\hypertarget{ref-Dirac1953888}{}}%
-\CSLLeftMargin{{[}2{]} }%
-\CSLRightInline{P. A. M. Dirac, {``The lorentz transformation and
-absolute time,''} \emph{Physica}, vol. 19, no. 1--12, pp. 888--896,
-1953, doi:
-\href{https://doi.org/10.1016/S0031-8914(53)80099-6}{10.1016/S0031-8914(53)80099-6}.}
-
-\end{CSLReferences}
+\printbibliography[title=References]
 
 \end{document}
 
