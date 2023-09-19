@@ -1,21 +1,13 @@
 ---
-title: Ieee-conference Template
+title: IEEE Conference Template
 format:
   ieee-conference-pdf:
     keep-tex: true
 affiliation:
   ## Author mode :  use one only of the following --- +
-  
-  ## one column per author - using only the institution field
-  author-columnar: true # uncomment this line to use
-  
-  ## one column per institution - using only the institution field
-  # institution-columnar: true # uncomment this line to use
-  
-  ## one column wide author/affiliation fields - using author or author_multiline and institution for mark
-  # wide: true # uncomment this line to use
-  
-  ## Author mode: End ----
+  author-columnar: true # one column per author (using only institution field)
+  # institution-columnar: true # one column per institution (using only institution field)
+  # wide: true # one column wide author/affiliation fields - (using author or author_multiline and institution for mark)
   
   ## A custom author ordering field that breaks institution grouping (used with `wide: true`)
   ## Authors cited in institution field are ignored when this author field exists
