@@ -34,4 +34,6 @@ Refer to comments in [ieee-conference.qmd](ieee-conference.qmd) regarding availa
 
 ## Example
 
+[<img src="example.png" alt="Example of the rendered document" width="35%">](ieee-conference.pdf)
+
 Here is the source code for a minimal sample document: [ieee-conference.qmd](ieee-conference.qmd) and the rendered output: [ieee-conference.pdf](ieee-conference.pdf).
