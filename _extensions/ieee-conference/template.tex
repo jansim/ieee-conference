@@ -475,10 +475,10 @@ $sep$,$endfor$$endif$$endif$%%$-- end for/affiliation.institution and end if aff
 $for(affiliation.institution)$
 \IEEEauthorblockA{\IEEEauthorrefmark{$affiliation.institution.mark$}
 $if(affiliation.institution.department)$
-$affiliation.institution.department$\\
+\textit{$affiliation.institution.department$}\\
 $endif$
-$affiliation.institution.name$,
-$affiliation.institution.location$
+\textit{$affiliation.institution.name$,
+$affiliation.institution.location$}
 $if(affiliation.institution.email)$
 \\ $affiliation.institution.email$
 $endif$
@@ -491,9 +491,9 @@ $if(affiliation.institution-columnar)$
 $for(affiliation.institution)$
 \IEEEauthorblockN{$for(affiliation.institution.author)$$affiliation.institution.author.name$$sep$, $endfor$}
 \IEEEauthorblockA{
-$if(affiliation.institution.department)$$affiliation.institution.department$\\$endif$%%
+\textit{$if(affiliation.institution.department)$$affiliation.institution.department$\\$endif$}%%
 $affiliation.institution.name$\\
-$affiliation.institution.location$
+\textit{$affiliation.institution.location$}
 $if(affiliation.institution.email)$\\$affiliation.institution.email$$else$$for(affiliation.institution.author)$$if(affiliation.institution.author.email)$\\$affiliation.institution.author.email$$endif$$endfor$%%
 $endif$%%$-- end for/affiliation.institution.author
 }
@@ -511,11 +511,12 @@ $if(affiliation.author-columnar)$
 $for(affiliation.institution)$
 $for(affiliation.institution.author)$
 \IEEEauthorblockN{$affiliation.institution.author.name$}
-\IEEEauthorblockA{$affiliation.institution.name$\\
+\IEEEauthorblockA{
 $if(affiliation.institution.department)$
-$affiliation.institution.department$\\
+\textit{$affiliation.institution.department$}\\
 $endif$
-$affiliation.institution.location$
+\textit{$affiliation.institution.name$}\\
+\textit{$affiliation.institution.location$}
 $if(affiliation.institution.email)$
 \\$affiliation.institution.email$
 $else$
