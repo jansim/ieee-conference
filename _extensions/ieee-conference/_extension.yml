@@ -10,3 +10,4 @@ contributes:
       cite-method: biblatex
       format-resources:
         - IEEEtran.cls
+      pdf-engine: pdflatex

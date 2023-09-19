@@ -30,11 +30,8 @@ format:
 
 ## Options
 
-Refer to comments in [ieee-conference.qmd](ieee-conference.qmd) regarding available options.
+Refer to comments in [ieee-conference.qmd](ieee-conference.qmd) regarding available options. To see how options affect the output, see the [template.tex](_extensions/ieee-conference/template.tex) file.
 
 ## Example
 
 Here is the source code for a minimal sample document: [ieee-conference.qmd](ieee-conference.qmd) and the rendered output: [ieee-conference.pdf](ieee-conference.pdf).
-
-Note that formatting is slightly off in the rendered PDF due to issues in a local LaTeX installation. Rendering the produced TeX-document on e.g. overleaf produces better output
-
