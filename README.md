@@ -37,3 +37,7 @@ Refer to comments in [ieee-conference.qmd](ieee-conference.qmd) regarding availa
 [<img src="example.png" alt="Example of the rendered document" width="35%">](ieee-conference.pdf)
 
 Here is the source code for a minimal sample document: [ieee-conference.qmd](ieee-conference.qmd) and the rendered output: [ieee-conference.pdf](ieee-conference.pdf).
+
+## Known Issues
+
+Including a table in two-column mode using the longtable environment can lead to LaTeX issues which may need manual workarounds (see https://github.com/jansim/ieee-conference/issues/2).
